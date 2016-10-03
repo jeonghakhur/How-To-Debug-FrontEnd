@@ -102,24 +102,70 @@ npm install -g yo
 
 ** generator 설치 **
 
-```
-npm install -g generator-express
-```
-
-Generator 검색 : (http://yeoman.io/generators/)[http://yeoman.io/generators/]
-
-** express 설치 **
+yo를 사용해 프레임워크를 설치하려면 해당 프레임워크에 대한 generator를 먼저 설치하셔야 합니다.
 
 ```
-yo express
+npm install -g generator-webapp
+```
+
+Yeoman : [http://yeoman.io/learning/index.html](http://yeoman.io/learning/index.html)
+Generator 검색 : [http://yeoman.io/generators/](http://yeoman.io/generators/)
+
+** 프레임워크 설치 **
+
+전역으로 설치된 generator를 설치를 원하는 디렉토리로 이동해 설치하면 됩니다.
+
+```
+yo webapp
 ```
 
 
 ### 1.5. Express 프레임워크
 
-#### 1.5.1. 디렉토리 구조
+expess 프레임워크 설치는 yo을 통해 설치할 것입니다. yo로 설치를 진행하는 이유는 테스트를 위한 별도의 패키지 설치나 설정 파일을 작성하지 않고 바로 서버를 구동해 테스트를 진행할 수 있는 장점이 있습니다.
 
-#### 1.5.2. 파일 설명
+#### 1.5.1 express 설치
+
+설치는 yeoman을 사용해 설치를 할 것입니다.
+
+** express generator 설치 **
+
+```
+npm install -g generator-express
+```
+
+** express 설치 **
+
+설치를 원하는 디렉토리로 이동하여 설치를 진행합니다.
+
+```
+yo express
+```
+
+설치 옵션 지정하는 부분이 있는데 아래와 같은 값으로 설치하시면 됩니다. express 프레임워크를 사용하여 웹 서비스를 구축하는 것이 목적이 아니라, 테스트 환경을 구축하는 것이 목적이기 설치 옵션에 대한 자세한 설명은 하지 않도록하겠습니다.
+
+```
+? Select a version to install: Basic
+? Select a view engine to use: EJS
+? Select a css preprocessor to use (Sass Requires Ruby): None
+? Select a build tool to use: Grunt
+```
+
+#### 1.5.2. 디렉토리 구조
+
+```
+bootstrap/
+├── css/
+│   ├── bootstrap.css
+│   ├── bootstrap.css.map
+│   ├── bootstrap.min.css
+│   └── bootstrap.min.css.map
+└── js/
+    ├── bootstrap.js
+    └── bootstrap.min.js
+```
+
+#### 1.5.3. 파일 설명
 
 ## 2. PC 웹 애플리케이션 디버깅
 
