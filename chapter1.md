@@ -1,4 +1,4 @@
-## 1. 사전 준비
+1.	사전 준비 ------------
 
 node.js, grunt, bower, yeoman 등을 설치하고 express 프레임워크를 설치해 테스트 환경을 구축할 것입니다.
 
@@ -33,13 +33,13 @@ Grunt를 설치하고 gruntfile에 task runner를 작성하고 명령 창을 통
 
 웹 개발시 자주 쓰이는 라이브러리를 쉽고 간편하게 관리할 수 있습니다. 추후 bower.json파일만 있으면 bower install 명령으로 똑같은 패키지 환경을 새로 생성할 수있습니다.
 
-** Bower 설치 **
+\** Bower 설치 \*\*
 
 ```
 npm install -g bower
 ```
 
-** 패키지 설치 **
+\** 패키지 설치 \*\*
 
 ```
 bower install --save jquery
@@ -47,13 +47,13 @@ bower install --save jquery
 
 -- save 옵션을 적어주면 설치한 패키지가 자동으로 bower.jons 파일에 추가되며 의존성 관리를 편하게 할 수 있습니다.
 
-** 패키지 검색 **
+\** 패키지 검색 \*\*
 
 ```
 bower search greensock
 ```
 
-** 패키지 버전 정보 확인 **
+\** 패키지 버전 정보 확인 \*\*
 
 ```
 bower info greensock
@@ -69,13 +69,13 @@ Yeoman은 angular나 express 등 관련 프레임워크에 대한 scaffolding �
 
 > scaffolding : 어플리케이션을 만들려고 할 때 생산하는 복잡하고 많은 양의 구조와 코드를 자동으로 생성해주는 기능을 말합니다.
 
-** Yeoman 설치 **
+\** Yeoman 설치 \*\*
 
 ```
 npm install -g yo
 ```
 
-** generator 설치 **
+\** generator 설치 \*\*
 
 yo를 사용해 프레임워크를 설치하려면 해당 프레임워크에 대한 generator를 먼저 설치하셔야 합니다.
 
@@ -83,17 +83,15 @@ yo를 사용해 프레임워크를 설치하려면 해당 프레임워크에 대
 npm install -g generator-webapp
 ```
 
-Yeoman : [http://yeoman.io/learning/index.html](http://yeoman.io/learning/index.html)
-Generator 검색 : [http://yeoman.io/generators/](http://yeoman.io/generators/)
+Yeoman : [http://yeoman.io/learning/index.html](http://yeoman.io/learning/index.html) Generator 검색 : [http://yeoman.io/generators/](http://yeoman.io/generators/)
 
-** 프레임워크 설치 **
+\** 프레임워크 설치 \*\*
 
 전역으로 설치된 generator를 설치를 원하는 디렉토리로 이동해 설치하면 됩니다.
 
 ```
 yo webapp
 ```
-
 
 ### 1.5. Express 프레임워크
 
@@ -105,13 +103,13 @@ Express 더 알아보기 : [http://expressjs.com/ko/](http://expressjs.com/ko/)
 
 설치는 yeoman을 사용해 설치를 할 것입니다.
 
-** express generator 설치 **
+\** express generator 설치 \*\*
 
 ```
 npm install -g generator-express
 ```
 
-** express 설치 **
+\** express 설치 \*\*
 
 설치를 원하는 디렉토리로 이동하여 설치를 진행합니다.
 
@@ -153,7 +151,7 @@ express/
 
 #### 1.5.3. 파일 설명
 
-** bin/www **
+\** bin/www \*\*
 
 node 서버 구동을 위한 코드가 작성되어 있습니다. 기본 3000 포트를 사용하고 있으며, 다른 포트로 변경 가능합니다.
 
@@ -169,10 +167,9 @@ var server = app.listen(app.get('port'), function() {
 });
 ```
 
-** bower.json **
+\** bower.json \*\*
 
-
-** .bowerrc **
+\** .bowerrc \*\*
 
 bower로 패키지를 설치할때 설치 위치를 지정합니다.
 
@@ -187,7 +184,7 @@ bower 설정 알아보기 : [https://github.com/bower/spec/blob/master/config.md
 
 > bower 설치시 패키지 별 파일 관리를 위한 [bower-installer](https://github.com/blittle/bower-installer)를 사용하셔도 됩니다.
 
-** .gitignore **
+\** .gitignore \*\*
 
 보통 로그 파일 및 프로젝트 설정 파일 등 git이 관리할 필요가 없는 파일을 작성합니다.
 
@@ -213,10 +210,9 @@ doc/*.txt
 doc/**/*.txt
 ```
 
-.gitignore 더 알아보기 : [https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files)
-github에서 제공하는 프로젝트별 가이드 : [https://github.com/github/gitignore](https://github.com/github/gitignore)
+.gitignore 더 알아보기 : [https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files) github에서 제공하는 프로젝트별 가이드 : [https://github.com/github/gitignore](https://github.com/github/gitignore)
 
-** .editorconfig **
+\** .editorconfig \*\*
 
 프로젝트의 진행시 여러 작업자가 동일한 코딩 스타일을 유지할 수 있도록 사용자의 기본 설정 보다 우선하여 설정 내용이 반영됩니다.
 
@@ -234,31 +230,28 @@ insert_final_newline = true
 
 editconfig 옵션 더 알아보기 : [https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties](https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties)
 
-** app.js **
+\** app.js \*\*
 
 express 애플리케이션에 대한 환경 설정 파일입니다. 몇몇 주요 내용만 살펴 보도록 하겠습니다.
 
-* HTML 템플릿 엔진과 템플릿 파일 위치를 지정
-```
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-```
+-	HTML 템플릿 엔진과 템플릿 파일 위치를 지정`
+	app.set('views', path.join(__dirname, 'views'));
+	app.set('view engine', 'ejs');
+	`
 
-* 라우트 파일 지정(특정 URL로 들어오는 http request에 대한 handler)
-```
-var routes = require('./routes/index');
-var users = require('./routes/user');
-...
-app.use('/', routes);
-app.use('/users', users);
-```
+-	라우트 파일 지정(특정 URL로 들어오는 http request에 대한 handler)`
+	var routes = require('./routes/index');
+	var users = require('./routes/user');
+	...
+	app.use('/', routes);
+	app.use('/users', users);
+	`
 
-* 정적 파일 위치 지정
-```
-app.use(express.static(path.join(__dirname, 'public')));
-// 정적 파일 위치 추가
-// app.use(express.static(path.join(__dirname, 'front-end')));
-```
+-	정적 파일 위치 지정`
+	app.use(express.static(path.join(__dirname, 'public')));
+	// 정적 파일 위치 추가
+	// app.use(express.static(path.join(__dirname, 'front-end')));
+	`
 
 여러개의 정적 디렉토리를 이용하려면 다음과 같이 express.static 미들웨어 함수를 여러번 호출하면 됩니다. 참고할 부분은 정적 디렉토리를 설정한 순서대로 파일을 검색합니다.
 
@@ -269,7 +262,7 @@ app.use(express.static(path.join(__dirname, 'admin')));
 
 express 정적 파일 더 알아보기 : [http://expressjs.com/ko/starter/static-files.html](http://expressjs.com/ko/starter/static-files.html)
 
-** gruntfile.js **
+\** gruntfile.js \*\*
 
 gruntfile에는 테스트를 진행하기 위해 간단한 서버 구동과 파일 수정에 대한 브라우저의 갱신 기능 두 가지만 설정되어있습니다. 추가적인 작업이 필요하다면 추가로 패키지를 설치하고 task를 작성해 사용하면 됩니다. 설정을 모두 확인하였다면 명령창을 열고 'grunt'를 입력하면 웹 서버가 구동 됩니다.
 
@@ -284,10 +277,9 @@ Waiting...
 [grunt-develop] > Express server listening on port 3000
 ```
 
-gruntfile 샘플 : [http://gruntjs.com/sample-gruntfile](http://gruntjs.com/sample-gruntfile)
-watch 옵션 : [https://github.com/gruntjs/grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)
+gruntfile 샘플 : [http://gruntjs.com/sample-gruntfile](http://gruntjs.com/sample-gruntfile) watch 옵션 : [https://github.com/gruntjs/grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)
 
-** package.json **
+\** package.json \*\*
 
 node.js로 프로젝트를 진행하게 되면 애플리케이션의 기본 정보와 모듈의 설치 정보를 package.json으로 관리하게 됩니다. 모듈의 설치 옵션을 `--save`로 주면 dependencies에 모듈의 정보가 기록되며 `--save-dev`로 주면 devDependencies에 모듈의 정보가 기록됩니다. 다음은 generator-express로 express를 설치하게 되면 기본적으로 생성되는 package.json파일입니다.
 
