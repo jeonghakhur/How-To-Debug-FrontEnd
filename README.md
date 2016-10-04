@@ -58,16 +58,15 @@ Grunt를 설치하고 gruntfile에 task runner를 작성하고 명령 창을 통
 
 ### 1.3. Bower
 
-웹 개발시 자주 쓰이는 라이브러리를 쉽고 간편하게 관리할 수 있습니다.
+웹 개발시 자주 쓰이는 라이브러리를 쉽고 간편하게 관리할 수 있습니다. 추후 bower.json파일만 있으면 bower install 명령으로 똑같은 패키지 환경을 새로 생성할 수있습니다.
 
 ** Bower 설치 **
-
 
 ```
 npm install -g bower
 ```
 
-** 패키지 설차 **
+** 패키지 설치 **
 
 ```
 bower install --save jquery
@@ -86,6 +85,9 @@ bower search greensock
 ```
 bower info greensock
 ```
+
+> package의 특정 버전을 설치하고 싶으시면 package 명 뒤에 #버전 을 사용합니다.
+
 자세한 내용은 [https://bower.io](https://bower.io)에서 확인하세요.
 
 ### 1.4. Yeoman
@@ -153,19 +155,117 @@ yo express
 
 #### 1.5.2. 디렉토리 구조
 
+express 설치가 완료된 후 폴더 및 파일은 아래와 같습니다. 테스트를 위해 정적 파일 위치인 public 폴더안에 HTML, css, img, javascript 등의 파일을 구성해 작업을 진행할 것입니다.
+
+routes, views 폴더는 express 프레임워크를 사용해 웹 서비스를 개발할 때 사용하는 route 기능과 html 뷰 템플릿 파일이 위치하며, node_modules 폴더는 npm 패키지 파일이 설치되는 위치 입니다.
+
 ```
-bootstrap/
-├── css/
-│   ├── bootstrap.css
-│   ├── bootstrap.css.map
-│   ├── bootstrap.min.css
-│   └── bootstrap.min.css.map
-└── js/
-    ├── bootstrap.js
-    └── bootstrap.min.js
+express/
+├── bin/
+│   └── www               // 서버 구동 파일
+├── node_modules/         // 노드 패키지 설치 디렉토리
+├── public/               // 정적 파일 위치
+├── routes/               // 라우트 js 파일 디렉토리
+├── views/                // html 템플릿 파일 디렉토리
+├── .bowerrc              // bower 설치 디렉토리
+├── .editorconfig         // 편집기 기본 설정
+├── .gitignore            // git 제외 설정
+├── app.js                // express 프레임워크 기본 설정
+├── bower.json            // bower 패키지 의존성 관리
+├── Gruntfile.js          // 빌드 및 테스트 기본 설정
+└── package.json          // npm 의존성 관리
 ```
 
 #### 1.5.3. 파일 설명
+
+** bin/www **
+
+node 서버 구동을 위한 코드가 작성되어 있습니다. 기본 3000 포트를 사용하고 있으며, 다른 포트로 변경 가능합니다.
+
+```
+#!/usr/bin/env node
+var app = require('../app');
+
+app.set('port', process.env.PORT || 3000);
+//app.set('port', process.env.PORT || 4000);
+
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
+});
+```
+
+** bower.json **
+
+
+** .bowerrc **
+
+bower로 패키지를 설치할때 설치 위치를 지정합니다.
+
+```
+{
+  "directory": "public/components",
+  "json": "bower.json"
+}
+```
+
+bower 설정 알아보기 : [https://github.com/bower/spec/blob/master/config.md](https://github.com/bower/spec/blob/master/config.md)
+
+> bower 설치시 패키지 별 파일 관리를 위한 [bower-installer](https://github.com/blittle/bower-installer)를 사용하셔도 됩니다.
+
+** .gitignore **
+
+보통 로그 파일 및 프로젝트 설정 파일 등 git이 관리할 필요가 없는 파일을 작성합니다.
+
+.gitignore 파일 작성 예
+
+```
+# 확장자가 .a인 파일 무시
+*.a
+
+# 윗 라인에서 확장자가 .a인 파일은 무시하게 했지만 lib.a는 무시하지 않음
+!lib.a
+
+# 현재 디렉토리에 있는 TODO파일은 무시하고 subdir/TODO처럼 하위디렉토리에 있는 파일은 무시하지 않음
+/TODO
+
+# build/ 디렉토리에 있는 모든 파일은 무시
+build/
+
+# doc/notes.txt 파일은 무시하고 doc/server/arch.txt 파일은 무시하지 않음
+doc/*.txt
+
+# doc 디렉토리 아래의 모든 .txt 파일을 무시
+doc/**/*.txt
+```
+
+.gitignore 더 알아보기 : [https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files)
+github에서 제공하는 프로젝트별 가이드 : [https://github.com/github/gitignore](https://github.com/github/gitignore)
+
+** .editorconfig **
+
+프로젝트의 진행시 여러 작업자가 동일한 코딩 스타일을 유지할 수 있도록 사용자의 기본 설정 보다 우선하여 설정 내용이 반영됩니다.
+
+```
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+```
+
+*사용하는 에디터가 editorconfig를 지원해야만 사용이 가능하며, 서브라임 텍스트의 경우 플러그인을 설치해야 합니다.*
+
+editconfig 옵션 더 알아보기 : [https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties](https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties)
+
+** app.js **
+
+
+
+** gruntfile.js **
+
+** package.json **
 
 ## 2. PC 웹 애플리케이션 디버깅
 
