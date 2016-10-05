@@ -4,7 +4,7 @@ node.js, grunt, bower, yeoman 등을 설치하고 express 프레임워크를 설
 
 ### 1.1. Node.js
 
-웹 서버를 설치하는 방법은 여러 가지가 있지만 프론트 엔드 개발에 최적화되어있는 Node.js를 사용할 것입니다. <https://nodejs.org/ko/> 접속해 파일을 다운로드하고 설치를 진행합니다. 설치 시 별도의 설정은 필요하지 않습니다.
+웹 서버를 설치하는 방법은 여러 가지가 있지만 프론트 엔드 개발에 최적화되어있는 Node.js를 사용할 것입니다. [https://nodejs.org/ko/](https://nodejs.org/ko/) 접속해 파일을 다운로드하고 설치를 진행합니다. 설치 시 별도의 설정은 필요하지 않습니다.
 
 설치가 완료되면 명령 프롬프트를 열고 `node -version`을 입력합니다.
 
@@ -26,7 +26,7 @@ npm install -g grunt-cli
 ```
 Grunt 명령을 실행할 수 있도록 grunt-cli를 먼저 설치합니다. 설치 옵션으로 -g를 주는 것은 Grunt 명령을 모든 디렉터리에서 실행할 수 있도록 전역 설치를 하겠다는 의미입니다.
 
-자세한 내용은 <http://gruntjs.com/>에서 확인하세요.
+자세한 내용은 [http://gruntjs.com/](http://gruntjs.com/)에서 확인하세요.
 
 ### 1.3. Bower
 
@@ -60,7 +60,7 @@ bower info greensock
 
 > package의 특정 버전을 설치하고 싶으시면 package 명 뒤에 #버전을 사용합니다.
 
-자세한 내용은 <https://bower.io>에서 확인하세요.
+자세한 내용은 [https://bower.io](https://bower.io)에서 확인하세요.
 
 ### 1.4. Yeoman
 
@@ -82,9 +82,9 @@ yo를 사용해 프레임워크를 설치하려면 해당 프레임워크에 대
 npm install -g generator-webapp
 ```
 
-Yeoman : <http://yeoman.io/learning/index.html>
+Yeoman : [http://yeoman.io/learning/index.html](http://yeoman.io/learning/index.html)
 
-Generator 검색 : <http://yeoman.io/generators/>
+Generator 검색 : [http://yeoman.io/generators/](http://yeoman.io/generators/)
 
 ** 프레임워크 설치 **
 전역으로 설치된 generator를 설치를 원하는 디렉터리로 이동해 설치하면 됩니다.
@@ -97,7 +97,7 @@ yo webapp
 
 Expess 프레임워크 설치는 yo을 통해 설치할 것입니다. yo로 설치를 진행하는 이유는 테스트를 위한 별도의 패키지 설치나 설정 파일을 작성하지 않고 바로 서버를 구동해 테스트를 진행할 수 있는 장점이 있습니다.
 
-Express 더 알아보기 : <http://expressjs.com/ko/>
+Express 더 알아보기 : [http://expressjs.com/ko/](http://expressjs.com/ko/)
 
 #### 1.5.1 express 설치
 
@@ -135,18 +135,18 @@ routes, views 폴더는 express 프레임워크를 사용해 웹 서비스를 �
 ```bash
 express/
 ├── bin/
-│ └── www                                     // 서버 구동 파일
-├── node_modules/                           // 노드 패키지 설치 디렉터리
-├── public/                                      // 정적 파일 위치
-├── routes/                                      // 라우트 js 파일 디렉터리
-├── views/                                       // html 템플릿 파일 디렉터리
-├── .bowerrc                                    // bower 설치 디렉터리
-├── .editorconfig                               // 편집기 기본 설정
-├── .gitignore                                   // git 제외 설정
-├── app.js                                        // express 프레임워크 기본 설정
-├── bower.json                                  // bower 패키지 의존성 관리
-├── Gruntfile.js                                  // 빌드 및 테스트 기본 설정
-└── package.json                               // npm 의존성 관리
+│   └── www               // 서버 구동 파일
+├── node_modules/         // 노드 패키지 설치 디렉토리
+├── public/               // 정적 파일 위치
+├── routes/               // 라우트 js 파일 디렉토리
+├── views/                // html 템플릿 파일 디렉토리
+├── .bowerrc              // bower 설치 디렉토리
+├── .editorconfig         // 편집기 기본 설정
+├── .gitignore            // git 제외 설정
+├── app.js                // express 프레임워크 기본 설정
+├── bower.json            // bower 패키지 의존성 관리
+├── Gruntfile.js          // 빌드 및 테스트 기본 설정
+└── package.json          // npm 의존성 관리
 ```
 
 #### 1.5.3. 파일 설명
@@ -169,23 +169,11 @@ var server = app.listen(app.get('port'), function() {
 
 ** bower.json **
 
-bower로 설치한 패키지들의 의존성을 관리하는 파일입니다. express 설치 시 별도로 설치된 라이브러리는 없습니다. 추가로 필요한 라이브러리가 있다면 bower를 이용해 설치를 진행합니다.
 
-```js
-{
-  "name": "express",
-  "version": "0.0.1",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "components"
-  ]
-}
-```
 
 ** .bowerrc **
 
-bower로 패키지를 설치할 때 설치 위치를 지정합니다. 기본 설치 디렉터리는 `public/components`입니다.
+bower로 패키지를 설치할때 설치 위치를 지정합니다.
 
 ```bash
 {
@@ -194,7 +182,7 @@ bower로 패키지를 설치할 때 설치 위치를 지정합니다. 기본 설
 }
 ```
 
-bower 설정 알아보기 : <https://github.com/bower/spec/blob/master/config.md>
+bower 설정 알아보기 : [https://github.com/bower/spec/blob/master/config.md](https://github.com/bower/spec/blob/master/config.md)
 
 > bower 설치시 패키지 별 파일 관리를 위한 [bower-installer](https://github.com/blittle/bower-installer)를 사용하셔도 됩니다.
 
@@ -224,9 +212,7 @@ doc/*.txt
 doc/**/*.txt
 ```
 
-.gitignore 더 알아보기 : <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files>
-
- github에서 제공하는 프로젝트별 가이드 : <https://github.com/github/gitignore>
+.gitignore 더 알아보기 : [https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files) github에서 제공하는 프로젝트별 가이드 : [https://github.com/github/gitignore](https://github.com/github/gitignore)
 
 ** .editorconfig **
 
@@ -244,7 +230,7 @@ insert_final_newline = true
 
 *사용하는 에디터가 editorconfig를 지원해야만 사용이 가능하며, 서브라임 텍스트의 경우 플러그인을 설치해야 합니다.*
 
-editconfig 옵션 더 알아보기 : <https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties>
+editconfig 옵션 더 알아보기 : [https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties](https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties)
 
 ** app.js **
 
@@ -279,11 +265,11 @@ app.use(express.static(path.join(__dirname, 'front-end')));
 app.use(express.static(path.join(__dirname, 'admin')));
 ```
 
-express 정적 파일 더 알아보기 : <http://expressjs.com/ko/starter/static-files.html>
+express 정적 파일 더 알아보기 : [http://expressjs.com/ko/starter/static-files.html](http://expressjs.com/ko/starter/static-files.html)
 
 ** gruntfile.js **
 
-gruntfile에는 테스트를 진행하기 위해 간단한 서버 구동과 파일 수정에 대한 브라우저의 갱신 기능 두 가지만 설정되어있습니다. 추가적인 작업이 필요하다면 추가로 패키지를 설치하고 task를 작성해 사용하면 됩니다. 설정을 모두 확인하였다면 명령 창을 열고 'grunt'를 입력하면 웹 서버가 구동됩니다.
+gruntfile에는 테스트를 진행하기 위해 간단한 서버 구동과 파일 수정에 대한 브라우저의 갱신 기능 두 가지만 설정되어있습니다. 추가적인 작업이 필요하다면 추가로 패키지를 설치하고 task를 작성해 사용하면 됩니다. 설정을 모두 확인하였다면 명령창을 열고 'grunt'를 입력하면 웹 서버가 구동 됩니다.
 
 ```bash
 grunt
@@ -296,9 +282,9 @@ Waiting...
 [grunt-develop] > Express server listening on port 3000
 ```
 
-gruntfile 샘플 : <http://gruntjs.com/sample-gruntfile>
+gruntfile 샘플 : [http://gruntjs.com/sample-gruntfile](http://gruntjs.com/sample-gruntfile)
 
-watch 옵션 : <https://github.com/gruntjs/grunt-contrib-watch>
+watch 옵션 : [https://github.com/gruntjs/grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)
 
 ** package.json **
 
@@ -331,4 +317,4 @@ node.js로 프로젝트를 진행하게 되면 애플리케이션의 기본 정�
 }
 ```
 
-package.json 작성 방법 : <http://programmingsummaries.tistory.com/385>
+package.json 작성 방법 : [http://programmingsummaries.tistory.com/385](http://programmingsummaries.tistory.com/385)
