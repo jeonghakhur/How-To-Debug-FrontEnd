@@ -260,7 +260,7 @@ app.set('view engine', 'ejs');
 
 ```js
 var routes = require('./routes/index');
-  var users = require('./routes/user');
+var users = require('./routes/user');
 ...
 app.use('/', routes);
 app.use('/users', users);
