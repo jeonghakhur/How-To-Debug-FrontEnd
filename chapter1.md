@@ -17,14 +17,14 @@ v6.7.0
 
 ### 1.2. Grunt
 
-Grunt는 프론트 엔드 빌드 자동화 도구입니다. 파일 축소, 컴파일, 단위 테스트, 코드 스타일 검사 및 문법 오류 검사 등 반복적인 작업의 수행을 쉽게 할 수 있게 합니다.
+Grunt는 프론트 엔드 빌드 자동화 도구입니다. 파일 축소, 컴파일, 단위 테스트, 코드 스타일 검사 및 문법 오류 검사 등 반복적인 작업의 수행을 쉽게 할 수 있습니다.
 
 **Grunt-CLI 설치**
 
 ```bash
 npm install -g grunt-cli
 ```
-Grunt 명령을 실행할 수 있도록 grunt-cli를 먼저 설치합니다. 설치 옵션으로 -g를 주는 것은 Grunt 명령을 모든 디렉터리에서 실행할 수 있도록 전역 설치를 하겠다는 의미입니다.
+Grunt 명령을 실행할 수 있도록 grunt-cli를 먼저 설치합니다. 설치 옵션으로 -g를 주는 것은 Grunt 명령을 시스템 어디에서도 실행할 수 있도록 전역 설치를 하겠다는 의미입니다.
 
 자세한 내용은 <http://gruntjs.com/>에서 확인하세요.
 
@@ -64,7 +64,7 @@ bower info greensock
 
 ### 1.4. Yeoman
 
-Yeoman은 angular나 express 등 관련 프레임워크에 대한 scaffolding 구조를 자동으로 생성해 프로젝트에 별다른 설정 없이 유용한 기능을 바로 사용할 수 있습니다.
+Yeoman은 angular나 express 등 관련 프레임워크에 대한 scaffolding 구조를 자동으로 생성해 별다른 설정 없이 유용한 기능을 프로젝트에 바로 사용할 수 있습니다.
 
 > scaffolding : 애플리케이션을 만들려고 할 때 생산하는 복잡하고 많은 양의 구조와 코드를 자동으로 생성해주는 기능을 말합니다.
 
@@ -76,7 +76,7 @@ npm install -g yo
 
 ** generator 설치 **
 
-yo를 사용해 프레임워크를 설치하려면 해당 프레임워크에 대한 generator를 먼저 설치하셔야 합니다.
+yo를 사용해 프레임워크를 설치하려면 먼저 해당 프레임워크에 대한 generator를 설치하셔야 합니다.
 
 ```bash
 npm install -g generator-webapp
@@ -128,7 +128,7 @@ yo express
 
 #### 1.5.2. 디렉토리 구조
 
-express 설치가 완료된 후 폴더 및 파일은 아래와 같습니다. 테스트를 위해 정적 파일 위치인 public 폴더 안에 HTML, css, img, javascript 등의 파일을 구성해 작업을 진행할 것입니다.
+express 설치가 완료된 후 폴더 및 파일은 다음과 같습니다. 테스트를 위해 정적 파일 위치인 public 폴더 안에 HTML, css, img, javascript 등의 파일을 구성해 작업을 진행할 것입니다.
 
 routes, views 폴더는 express 프레임워크를 사용해 웹 서비스를 개발할 때 사용하는 route 기능과 html 뷰 템플릿 파일이 위치하며, node_modules 폴더는 npm 패키지 파일이 설치되는 위치입니다.
 
@@ -242,7 +242,7 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 ```
 
-*사용하는 에디터가 editorconfig를 지원해야만 사용이 가능하며, 서브라임 텍스트의 경우 플러그인을 설치해야 합니다.*
+*사용하는 에디터가 .editorconfig 파일을 지원해야만 사용이 가능하며, 서브라임 텍스트의 경우 플러그인을 설치해야 합니다.*
 
 editconfig 옵션 더 알아보기 : <https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties>
 
@@ -272,7 +272,7 @@ app.use('/users', users);
 app.use(express.static(path.join(__dirname, 'public')));
 ```
 
-여러개의 정적 디렉토리를 이용하려면 다음과 같이 express.static 미들웨어 함수를 여러번 호출하면 됩니다. 참고할 부분은 정적 디렉토리를 설정한 순서대로 파일을 검색합니다.
+여러 위치에 정적 파일을 두고 사용하려면 다음과 같이 express.static 미들웨어 함수를 여러번 호출하면 됩니다. 참고할 부분은 정적 디렉토리를 설정한 순서대로 파일을 검색합니다.
 
 ```js
 app.use(express.static(path.join(__dirname, 'front-end')));
@@ -283,7 +283,7 @@ express 정적 파일 더 알아보기 : <http://expressjs.com/ko/starter/static
 
 ** gruntfile.js **
 
-gruntfile에는 테스트를 진행하기 위해 간단한 서버 구동과 파일 수정에 대한 브라우저의 갱신 기능 두 가지만 설정되어있습니다. 추가적인 작업이 필요하다면 추가로 패키지를 설치하고 task를 작성해 사용하면 됩니다. 설정을 모두 확인하였다면 명령 창을 열고 'grunt'를 입력하면 웹 서버가 구동됩니다.
+gruntfile에는 테스트를 진행하기 위해 간단한 테스트 서버 구동과 파일 변경시 서버에 알림을 회신하는 두 가지 기능만 설정되어있습니다. 추가적인 작업이 필요하다면 원하는 기능의 플러그인(<http://gruntjs.com/plugins>)을 설치하고 task(<http://gruntjs.com/configuring-tasks>)를 작성해 사용하면 됩니다. 설정을 모두 확인하였다면 명령 창을 열고 'grunt'를 입력하면 웹 서버가 구동됩니다.
 
 ```bash
 grunt
