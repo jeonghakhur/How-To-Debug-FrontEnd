@@ -71,7 +71,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.101-b13, mixed mode)
 
 안드로이드 스튜디오를 설치해 필수 SDK 도구를 설치하고 Android SDK Manager를 통해 Google USB Driver를 설치할 것입니다. 안드로이드 스튜디오 홈페이지(https://developer.android.com/studio/index.html)에 접속해 프로그램을 다운로드하여 설치를 진행합니다.
 
-![안드로이드 스튜디오 설치](img/android-setting-1.PNG)
+![안드로이드 스튜디오 설치](img/android-setting-1.png)
 
 최초 설치 후 뜨는 창으로 이전 환경설정을 사용할 것인지 확인하는 창입니다. 이전 설정이 없으므로 다음으로 넘어가시면 됩니다.
 
@@ -91,11 +91,11 @@ SDK Manager 열어 Google USB Driver를 설치할 것입니다.
 2.	Android
 3.	SDK Manager
 
-![SDK Manager 열기](img/android-setting-2.PNG)
+![SDK Manager 열기](img/android-setting-2.png)
 
 Default Setting 창이 열리며 Android SDK 항목이 선택되어 있습니다. 우측 탭에서 SDK Tools를 클릭해 Google USB Driver를 선택하고 "OK" 버튼을 클릭해 설치를 진행합니다.
 
-![Default Setting 창](img/android-setting-3.PNG)
+![Default Setting 창](img/android-setting-3.png)
 
 SDK Manager에 대한 자세한 정보는 https://developer.android.com/studio/intro/update.html#sdk-manager에서 확인해 보세요.
 
@@ -145,7 +145,7 @@ d3da4f2f        unauthorized
 
 디바이스와 PC가 통신하게 되면 USB 디버깅 허용에 대한 알림 창이 열리게 되며 확인 버튼을 눌러 창을 닫습니다.
 
-![USB 디버깅 허용 알림 창](img/android-setting-4.PNG)
+![USB 디버깅 허용 알림 창](img/android-setting-4.png)
 
 다시 크롬 브라우저를 확인해 보면 디바이스의 이름이 표시되며 디바이스의 크롬 브라우저에서 오픈되어 있는 화면 목록이 나타나게 됩니다. "Open tab with url" 입력창에 URL을 입력하면 연결되어있는 디바이스의 크롬 브라우저에서 해당 URL이 새창으로 열리게 됩니다.
 
