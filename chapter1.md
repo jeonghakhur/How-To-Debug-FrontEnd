@@ -279,7 +279,7 @@ app.use(express.static(path.join(__dirname, 'front-end')));
 app.use(express.static(path.join(__dirname, 'admin')));
 ```
 
-express 정적 파일 더 알아보기 : <http://expressjs.com/ko/starter/static-files.html>
+express 정적 파일 더 알아보기 : <http://expressjs.com/ko/starter/static-files.html>   
 
 ** gruntfile.js **
 
