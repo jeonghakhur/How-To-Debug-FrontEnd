@@ -1,7 +1,11 @@
-하이브리드 앱 디버깅 방법
+4. 하이브리드 앱 디버깅 방법
 -------------------------
 
-하이브리드 앱 디버깅 방법에 앞서 모바일 애플리케이션을 개발하는 방식에 따라 구분하는 네이티브 앱, 웹 앱, 하이브리드 앱의 기본 개념을 이해애야 합니다.
+하이브리드 앱 디버깅 방법에 앞서 모바일 애플리케이션을 개발하는 방식에 따라 구분하는 네이티브 앱, 웹 앱, 하이브리드 앱의 기본 개념을 이해애야 합니다. 웹앱의 경우는 모바일 기본 브라우저에서 실행을 하거나 크롬 브라우저를 통해 접속하게 되며, 하이브리드 앱은 웹뷰를 통해 콘텐츠를 확인하게 됩니다. 여기서 중요한 것은 모바일 기본 브라우저와 웹뷰가 webkit 버전이 다르며, 삼성과 같은 경우는 브라우저 성능 개선을 위해 Chrominu을 기반으로 SBrowser를 만들었고 갤럭시 S3 ~ 갤럭시 S4에 기본 브라우저로 탑재하였습니다. 그로 인해 다양한 버그가 존재하고 랜더링 성능에도 차이가 있습니다.
+
+이런 현상을 브라우저 파편화라고 말하며 이를 개선하기 위해 Google에서는 Andorid 4.4(Kitkat) 버전부터 Chrominum을 Android의 기본 브라우저로 탑재였으나 삼성의 갤럭시 S4는 SBrowser를 기본 브라우저로 사용하고 있습니다.
+
+> 모바일 웹 개발이나 하이브리드 앱 개발시 디바이스의 지원 범위를 Android는 4.4(Kitkat) 이상으로 협의하는 것을 권장합니다.
 
 **네이티브 앱**
 
@@ -27,7 +31,7 @@
 
 https://cordova.apache.org/docs/ko/latest/guide/overview/index.html
 
-### Cordova 설치
+### 4.1. Cordova 설치
 
 [Cordova](https://cordova.apache.org/docs/ko/latest/guide/overview/index.html)는 크로스 플랫폼 개발을 지원하는 하이브리드 프레임워크입니다. cordova를 설치해 모바일 디바이스에 앱을 설치하고 WebView를 통해 작업 결과물을 확인하고 디버깅하는 방법에 대해 설명합니다.
 
@@ -64,17 +68,17 @@ cordova build android
 cordova run android
 ```
 
-### 환경설정
+### 4.2. 환경설정
 
-#### cordova-plugin-whitelist 플러그인 설정
+#### 4.2.1. cordova-plugin-whitelist 플러그인 설정
 
-cordova에서 지원하는 보안설정을 위한 플러그인 입니다.
+cordova 프로젝트를 생성하면 기본적으로 설치되는 보안설정을 위한 플러그인으로 외부 자원(이미지, XHR, 기타 등등)에 대한 허용과 외부 링크 허용을 설정할 수 있습니다. 그리고 외부 링크는 WebView에서 보여줄지 새창으로 보여줄지를 결정할 수 있습니다. 기본 설정 값이 http(s)로 시작하는 주소는 새창으로 열리게 설정되어 있는데 프로젝트를 진행하다 보면 http(s)로 시작하는 주소를 WebViwe에서 열어야 할 때도 있을 것입니다. 상황에 따라 설정 파일을 수정해 프로젝트에 반영해 주시면 됩니다.
 
-#### Navigation Whitelist
+프로젝트의 홈 디렉토리의 `config.xml`을 수정해 설정 값을 변경할 수 있습니다.
 
-App의 WebView가 이동할 수 있는 URL을 통제할 수 있습니다. Top-level 네비게이션에만 적용할 수 있습니다. 안드로이드에서는 Http(s) 스킴이 아닌 iframe에도 적용됩니다.
+**Navigation Whitelist**
 
-기본적으로 네비게이션은 file:// URL만 허용하도록 정의됩니다. 다른 URL을 허용하기 위해서는 <allow-navigation> 태그를 config.xml에 추가해야합니다.
+외부 링크의 허용과 링크를 웹뷰에서 오픈할 수 있도록 설정합니다.
 
 ```xml
 <!-- example.com 링크를 추가합니다. -->
@@ -92,9 +96,9 @@ App의 WebView가 이동할 수 있는 URL을 통제할 수 있습니다. Top-le
 <allow-navigation href="data:*" />
 ```
 
-#### Intent Whitelist
+**Intent Whitelist**
 
-시스템에 요청 가능한 URL을 통제할 수 있습니다. config.xml에서 다음과 같이 <allow-intent>를 설정하세요.
+외부 링크의 허용과 링크를 새창으로 오픈할 수 있도록 설정합니다.
 
 ```xml
 <!-- 브라우저에서 웹페이지로의 모든 http, https링크를 열수 있도록 허용합니다. -->
@@ -120,7 +124,7 @@ App의 WebView가 이동할 수 있는 URL을 통제할 수 있습니다. Top-le
 <allow-intent href="*" />
 ```
 
-#### Network Request Whitelist
+**Network Request Whitelist**
 
 어떤 네트워크 유형(이미지, XHR, 기타 등등)을 허용할 지 통제할 수 있습니다. <access>태그를 설정하지 않으면, file:// URL만 허용됩니다. 그러나, 기본 Cordova Application에는 `<access origin="*">`이 포함되어 있습니다.
 
@@ -142,7 +146,7 @@ App의 WebView가 이동할 수 있는 URL을 통제할 수 있습니다. Top-le
 <access origin="*" />
 ```
 
-### 폰트 크기 설정
+#### 4.2.2. 폰트 크기 설정
 
 안드로이드 디바이스의 경우 시스템 설정의 글자 크기에 따라 CSS의 글자 크기가 상대적으로 반영되어 원하는 결과가 나오지 않습니다. CSS 글자 크기 설정이 시스템의 글자 크기 설정 보다 우선하여 반영되도록 수정해야 합니다.
 
@@ -171,11 +175,11 @@ public class MainActivity extends CordovaActivity
 }
 ```
 
-### 디버깅 방법
+### 4.3. 디버깅 방법
 
 작업자의 PC가 외부에서 접속 가능한 아이피를 가지고 있는 경우라면 로컬 서버를 구동해 보다 편리하게 디버깅할 수 있습니다. 그렇지 않은 환경이라면 애플리케이션에 작업파일을 포함해 디바이스에 빌드하여 디버깅해야 합니다.
 
-#### 외부 접속이 가능한 경우
+#### 4.3.1. 외부 접속이 가능한 경우
 
 애플리케이션의 홈 디렉토리에 있는 `config.xml`의 `<content>` 태그의 속성에 작업자의 로컬 서버 접속 정보를 입력합니다. 로컬 서버의 접속 URL은 `localhoat:3000`번이 아닌 아이피를 입력해 주어야 합니다.
 
@@ -206,7 +210,7 @@ public class MainActivity extends CordovaActivity
 5.	명령창에 `cordova run android` 실행
 6.	크롬 주소창에 `chrome://inspect/#devices` 입력
 
-#### 외부 접속이 되지 않는 경우
+#### 4.3.2. 외부 접속이 되지 않는 경우
 
 외부 접속이 되지 않는 환경일 경우 애플리케이션에 작업 파일을 포함해 디바이스에 애플리케이션을 설치해 디버깅 작업을 진행해야 합니다. 파일을 수정한 경우 매번 애플리케이션을 설치해야 되는 불편함이 있습니다.
 
@@ -229,3 +233,9 @@ public class MainActivity extends CordovaActivity
 3.	코르도바 애플리케이션 설치 위치로 이동
 4.	명령창에 `cordova run android` 실행
 5.	크롬 주소창에 `chrome://inspect/#devices` 입력
+
+-----
+
+#### 정리하며
+
+현재 사용되고 있는 모든 모바일 디바이스에 서비스를 제공해 사용자의 접근성을 높이는 일이 우선 되어야 합니다. 하지만 현실적으로 개발의 비용과 개발의 시간의 문제가 있어 타협이 필요할 수 있습니다. 또한 최신 기술을 오래된 디바이스에서 서비스할 수 없는 경우도 있을 것입니다. 그러므로 디바이스의 지원 범위를 적절하게 판단하고 협의하여 프로젝트를 시작하는 것이 중요할 것입니다.

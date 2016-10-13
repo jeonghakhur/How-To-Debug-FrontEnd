@@ -1,6 +1,6 @@
 ##	1. 사전 준비
 
-node.js, grunt, bower, yeoman 등을 설치하고 express 프레임워크를 설치해 테스트 환경을 구축할 것입니다.
+node.js, grunt, git, bower, yeoman 등을 설치하고 express 프레임워크를 설치해 테스트 환경을 구축할 것입니다.
 
 ### 1.1. Node.js
 
@@ -28,9 +28,16 @@ Grunt 명령을 실행할 수 있도록 grunt-cli를 먼저 설치합니다. 설
 
 자세한 내용은 <http://gruntjs.com/>에서 확인하세요.
 
-### 1.3. Bower
+### 1.3 Git 설치
 
-웹 개발 시 자주 쓰이는 라이브러리를 쉽고 간편하게 관리할 수 있습니다.  
+Bower를 사용하기 위해서는 Node.js와 Git이 필요합니다. Git(<https://msysgit.github.io/>)에 접속해 자신의 운영체제에 맞는 프로그램을 다운받아 설치를 진행합니다. 설치 옵션중 윈도우의 콘솔창에서 깃을 실행할 수 있게 설치가 되어 있더라도 Bower 및 Yo 실행은 Git bash 프로그램을 사용하는 것을 권장합니다. 윈도우의 콘솔창에서 Bower와 Yo를 실행할 경우 특정 모듈이 설치되지 않는 오류가 있을 수 있습니다. 서브라임 텍스트의 경우 현재 편집 중인 위치에서 terminal 창을 열 수 있는 플러그인(<https://packagecontrol.io/packages/Terminal>)을 사용할 수 있습니다.
+
+> git-bash에서 Bower와 Yo로 패키지 설치시 방향키가 작동하지 않는다면 `C:\Program Files\Git\bin\bash.exe`을 사용하시면 됩니다.
+
+
+### 1.4. Bower
+
+웹 개발 시 자주 쓰이는 라이브러리를 쉽고 간편하게 관리할 수 있습니다.
 
 ** Bower 설치 **
 
@@ -62,7 +69,7 @@ bower info greensock
 
 자세한 내용은 <https://bower.io>에서 확인하세요.
 
-### 1.4. Yeoman
+### 1.5. Yeoman
 
 Yeoman은 angular나 express 등 관련 프레임워크에 대한 scaffolding 구조를 자동으로 생성해 별다른 설정 없이 유용한 기능을 프로젝트에 바로 사용할 수 있습니다.
 
@@ -93,13 +100,13 @@ Generator 검색 : <http://yeoman.io/generators/>
 yo webapp
 ```
 
-### 1.5. Express 프레임워크
+### 1.6. Express 프레임워크
 
 Expess 프레임워크 설치는 yo을 통해 설치할 것입니다. yo로 설치를 진행하는 이유는 테스트를 위한 별도의 패키지 설치나 설정 파일을 작성하지 않고 바로 서버를 구동해 테스트를 진행할 수 있는 장점이 있습니다.
 
 Express 더 알아보기 : <http://expressjs.com/ko/>
 
-#### 1.5.1 express 설치
+#### 1.6.1 express 설치
 
 설치는 yeoman을 사용해 설치를 할 것입니다.
 
@@ -126,7 +133,7 @@ yo express
 ? Select a build tool to use: Grunt
 ```
 
-#### 1.5.2. 디렉토리 구조
+#### 1.6.2. 디렉토리 구조
 
 express 설치가 완료된 후 폴더 및 파일은 다음과 같습니다. 테스트를 위해 정적 파일 위치인 public 폴더 안에 HTML, css, img, javascript 등의 파일을 구성해 작업을 진행할 것입니다.
 
@@ -149,7 +156,7 @@ express/
 └── package.json                               // npm 의존성 관리
 ```
 
-#### 1.5.3. 파일 설명
+#### 1.6.3. 파일 설명
 
 ** bin/www **
 
@@ -279,7 +286,7 @@ app.use(express.static(path.join(__dirname, 'front-end')));
 app.use(express.static(path.join(__dirname, 'admin')));
 ```
 
-express 정적 파일 더 알아보기 : <http://expressjs.com/ko/starter/static-files.html>   
+express 정적 파일 더 알아보기 : <http://expressjs.com/ko/starter/static-files.html>
 
 ** gruntfile.js **
 
