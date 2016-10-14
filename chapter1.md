@@ -30,10 +30,11 @@ Grunt 명령을 실행할 수 있도록 grunt-cli를 먼저 설치합니다. 설
 
 ### 1.3 Git 설치
 
-Bower를 사용하기 위해서는 Node.js와 Git이 필요합니다. Git(<https://msysgit.github.io/>)에 접속해 자신의 운영체제에 맞는 프로그램을 다운받아 설치를 진행합니다. 설치 옵션중 윈도우의 콘솔창에서 깃을 실행할 수 있게 설치가 되어 있더라도 Bower 및 Yo 실행은 Git bash 프로그램을 사용하는 것을 권장합니다. 윈도우의 콘솔창에서 Bower와 Yo를 실행할 경우 특정 모듈이 설치되지 않는 오류가 있을 수 있습니다. 서브라임 텍스트의 경우 현재 편집 중인 위치에서 terminal 창을 열 수 있는 플러그인(<https://packagecontrol.io/packages/Terminal>)을 사용할 수 있습니다.
+Bower를 사용하기 위해서는 Node.js와 Git이 필요합니다. Git(<https://msysgit.github.io/>)에 접속해 자신의 운영체제에 맞는 프로그램을 다운로드하여 설치하며, 터미널 창에서 node.js 및 파이썬, Ruby와 같은 윈도우의 콘솔 프로그램을 사용하기 위해 설치 옵션 중 윈도우의 콘솔을 기본으로 사용하는 것을 체크하고 설치해야 됩니다.
 
-> git-bash에서 Bower와 Yo로 패키지 설치시 방향키가 작동하지 않는다면 `C:\Program Files\Git\bin\bash.exe`을 사용하시면 됩니다.
+![Git install](img/git-install-1.jpg)
 
+> 서브라임 텍스트의 경우 현재 편집 중인 위치에서 terminal 창을 열 수 있는 플러그인(<https://packagecontrol.io/packages/Terminal>)을 사용할 수 있습니다.
 
 ### 1.4. Bower
 
